@@ -22,7 +22,11 @@ class User {
     $this->lastname = $info->lastname;
     $this->balance = $info->balance;
     session_start();
-    $_SESSION['']
+    $_SESSION['user'] = $this;
+  }
+
+  public function GetAuth() {
+    return $this->auth;
   }
 
   public static function Login($uuid, $pass) {
@@ -40,7 +44,7 @@ class User {
       'name' => $name,
       'lastname' => $lastname,
       'balance' => $balance
-    )
+    );
 
     $user = new User($info);
   }
